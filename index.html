@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kali Strikes Defense Co. | Women's Tactical Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700;1,6..96,900&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* =============================================
+   RESET + TOKENS
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0C0906;
+  --surface:   #161210;
+  --surface2:  #1E1915;
+  --cream:     #F0E4CC;
+  --cream2:    #C4A97C;
+  --muted:     #6B5D4A;
+  --red:       #B91C2C;
+  --red-hover: #991222;
+  --gold:      #C4952A;
+  --white:     #FAF7F2;
+
+  --f-display: 'Bodoni Moda', 'Georgia', serif;
+  --f-body:    'EB Garamond', 'Georgia', serif;
+  --f-mono:    'DM Mono', 'Courier New', monospace;
+
+  --max: 1140px;
+  --gap: clamp(24px, 5vw, 80px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--f-body);
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+img { display: block; width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* =============================================
+   UTILITIES
+============================================= */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* =============================================
+   NAV
+============================================= */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(12, 9, 6, .92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(196, 149, 42, .12);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: .04em;
+}
+.nav-logo span { color: var(--red); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--cream2);
+  transition: color .25s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  background: var(--red);
+  color: var(--white);
+  padding: 10px 22px;
+  transition: background .25s;
+  border: none;
+  cursor: pointer;
+}
+.nav-cta:hover { background: var(--red-hover); }
+.nav-mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-mobile-btn span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--cream);
+}
+
+/* =============================================
+   HERO
+============================================= */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  padding-top: 68px;
+}
+.hero-img {
+  position: relative;
+  background: var(--surface2);
+  min-height: 600px;
+  overflow: hidden;
+}
+/* REPLACE THIS DIV WITH AN <img> TAG WHEN PHOTO IS READY */
+.hero-img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 36px;
+  background:
+    linear-gradient(160deg, rgba(185,28,44,.15) 0%, rgba(12,9,6,.6) 60%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,.012) 0px,
+      rgba(255,255,255,.012) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+}
+.hero-img-placeholder p {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: rgba(196,149,42,.4);
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px dashed rgba(196,149,42,.2);
+  padding: 10px 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(40px, 6vw, 100px) clamp(32px, 5vw, 80px);
+  border-left: 1px solid rgba(196,149,42,.1);
+}
+.hero-eyebrow {
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: var(--f-display);
+  font-size: clamp(44px, 5.5vw, 88px);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.02em;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--red);
+}
+.hero-sub {
+  font-family: var(--f-body);
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-style: italic;
+  color: var(--cream2);
+  line-height: 1.8;
+  max-width: 420px;
+  margin-bottom: 44px;
+  border-left: 2px solid var(--red);
+  padding-left: 20px;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  cursor: pointer;
+  transition: all .3s;
+  border: none;
+  display: inline-block;
+  text-align: center;
+}
+.btn-primary { background: var(--red); color: var(--white); }
+.btn-primary:hover { background: var(--red-hover); }
+.btn-outline { background: transparent; color: var(--cream); border: 1px solid rgba(240,228,204,.2); }
+.btn-outline:hover { border-color: var(--cream); }
+.btn-gold { background: var(--gold); color: var(--bg); }
+.btn-gold:hover { background: #d4a535; }
+
+.hero-detail {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.hero-detail-line {
+  width: 36px;
+  height: 1px;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+.hero-detail p {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .3em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* =============================================
+   FEATURE STRIP
+============================================= */
+.strip {
+  background: var(--red);
+  overflow: hidden;
+  border-top: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.strip-inner {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  white-space: nowrap;
+  animation: scroll-strip 28s linear infinite;
+}
+.strip-item {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: rgba(255,255,255,.85);
+  text-transform: uppercase;
+  padding: 0 36px;
+  flex-shrink: 0;
+}
+.strip-dot {
+  color: rgba(255,255,255,.4);
+  flex-shrink: 0;
+}
+@keyframes scroll-strip {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* =============================================
+   PHILOSOPHY
+============================================= */
+.philosophy {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--bg);
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: center;
+}
+.philosophy-left { }
+.philosophy-quote {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 32px;
+  position: relative;
+}
+.philosophy-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: -12px;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--red);
+  opacity: .25;
+  font-family: Georgia, serif;
+}
+.philosophy-attr {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.philosophy-attr-line { width: 28px; height: 1px; background: var(--gold); }
+.philosophy-attr p {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .35em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.philosophy-right { }
+.philosophy-body {
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.85;
+  color: var(--cream2);
+}
+.philosophy-body p { margin-bottom: 22px; }
+.philosophy-body p:last-child { margin-bottom: 0; }
+.philosophy-body strong { color: var(--cream); font-weight: 500; }
+
+.done-list {
+  margin: 36px 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.done-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.done-mark {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.done-item p {
+  font-family: var(--f-body);
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.4;
+}
+
+/* =============================================
+   TRAINING SECTION
+============================================= */
+.training {
+  background: var(--surface);
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-top: 1px solid rgba(196,149,42,.08);
+  border-bottom: 1px solid rgba(196,149,42,.08);
+}
+.training-header {
+  margin-bottom: 64px;
+}
+.section-title {
+  font-family: var(--f-display);
+  font-size: clamp(30px, 4vw, 58px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--white);
+  margin-top: 12px;
+}
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+}
+.training-card {
+  background: var(--surface2);
+  padding: 36px 24px;
+  border-top: 2px solid transparent;
+  transition: all .35s ease;
+  cursor: default;
+}
+.training-card:hover {
+  background: #1E1915;
+  border-top-color: var(--red);
+}
+.tc-num {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .3em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.tc-title {
+  font-family: var(--f-display);
+  font-size: clamp(15px, 1.3vw, 19px);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.tc-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* =============================================
+   TESTIMONIALS
+============================================= */
+.testimonials {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--bg);
+}
+.testimonials-header {
+  margin-bottom: 56px;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testi-card {
+  background: var(--surface);
+  border: 1px solid rgba(196,149,42,.08);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: border-color .3s;
+}
+.testi-card:hover {
+  border-color: rgba(196,149,42,.2);
+}
+.testi-mark {
+  font-size: 40px;
+  line-height: 1;
+  color: var(--red);
+  opacity: .5;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+.testi-text {
+  font-family: var(--f-body);
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--cream2);
+  flex: 1;
+}
+.testi-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 20px;
+}
+.testi-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface2);
+  flex-shrink: 0;
+  border: 1px solid rgba(196,149,42,.15);
+}
+.testi-name {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.testi-loc {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* =============================================
+   OFFERINGS
+============================================= */
+.offerings {
+  background: var(--surface);
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-top: 1px solid rgba(196,149,42,.08);
+}
+.offerings-header { margin-bottom: 64px; }
+
+.offering-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 72px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.offering-block:first-of-type { padding-top: 0; }
+.offering-block:last-of-type { border-bottom: none; padding-bottom: 0; }
+.offering-block.flip { direction: rtl; }
+.offering-block.flip > * { direction: ltr; }
+
+.offering-img {
+  aspect-ratio: 4/3;
+  background: var(--surface2);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.offering-img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,.01) 0px,
+    rgba(255,255,255,.01) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+.offering-img-placeholder p {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: rgba(196,149,42,.3);
+  text-transform: uppercase;
+}
+.status-pill {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid;
+}
+.status-pill.soon { color: var(--red); border-color: rgba(185,28,44,.35); background: rgba(185,28,44,.08); }
+.status-pill.open { color: var(--gold); border-color: rgba(196,149,42,.35); background: rgba(196,149,42,.08); }
+
+.offering-content { }
+.offering-label { margin-bottom: 16px; }
+.offering-title {
+  font-family: var(--f-display);
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.offering-desc {
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.85;
+  color: var(--cream2);
+  margin-bottom: 32px;
+}
+.offering-note {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+/* Waitlist mini-form */
+.waitlist-form {
+  display: flex;
+  gap: 0;
+  max-width: 400px;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.waitlist-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 13px 18px;
+  font-family: var(--f-body);
+  font-size: 14px;
+  color: var(--cream);
+  outline: none;
+}
+.waitlist-form input::placeholder { color: var(--muted); }
+.waitlist-form button {
+  background: var(--red);
+  border: none;
+  padding: 13px 20px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--white);
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .25s;
+}
+.waitlist-form button:hover { background: var(--red-hover); }
+
+/* =============================================
+   SENSEI
+============================================= */
+.sensei {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--bg);
+}
+.sensei-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+.sensei-photo-wrap {
+  position: sticky;
+  top: 96px;
+}
+.sensei-photo {
+  aspect-ratio: 3/4;
+  background: var(--surface2);
+  border: 1px solid rgba(196,149,42,.1);
+  position: relative;
+  overflow: hidden;
+}
+.sensei-photo-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,.01) 0,
+    rgba(255,255,255,.01) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+.sensei-photo-inner p {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: rgba(196,149,42,.3);
+  text-transform: uppercase;
+}
+.sensei-photo-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--red), var(--gold));
+}
+
+.sensei-content { }
+.sensei-label { margin-bottom: 16px; }
+.sensei-name {
+  font-family: var(--f-display);
+  font-size: clamp(32px, 4vw, 60px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.sensei-title-line {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.sensei-bio {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.85;
+  color: var(--cream2);
+  margin-bottom: 24px;
+}
+.sensei-bio strong { color: var(--cream); font-weight: 500; }
+.sensei-bio:last-of-type { margin-bottom: 0; }
+
+.sensei-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.stat { }
+.stat-val {
+  font-family: var(--f-display);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-lbl {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* =============================================
+   SEMINAR INQUIRY
+============================================= */
+.seminar {
+  background: var(--surface);
+  padding: clamp(80px, 10vw, 140px) 0;
+  border-top: 1px solid rgba(196,149,42,.08);
+  border-bottom: 1px solid rgba(196,149,42,.08);
+}
+.seminar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.seminar-left { }
+.seminar-title {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 3.5vw, 50px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--white);
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+.seminar-body {
+  font-size: clamp(15px, 1.4vw, 19px);
+  line-height: 1.85;
+  color: var(--cream2);
+  margin-bottom: 36px;
+}
+.seminar-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.city-pill {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--cream2);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 7px 14px;
+  text-transform: uppercase;
+}
+
+.seminar-form { }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.form-control {
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 13px 16px;
+  font-family: var(--f-body);
+  font-size: 15px;
+  color: var(--cream);
+  outline: none;
+  transition: border-color .25s;
+  width: 100%;
+}
+.form-control:focus { border-color: rgba(185,28,44,.5); }
+.form-control::placeholder { color: var(--muted); }
+textarea.form-control { resize: vertical; min-height: 100px; }
+.form-submit-row {
+  margin-top: 20px;
+}
+.form-note {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* =============================================
+   TIKTOK
+============================================= */
+.tiktok-section {
+  padding: clamp(80px, 8vw, 120px) 0;
+  background: var(--bg);
+  text-align: center;
+}
+.tiktok-eyebrow { margin-bottom: 16px; }
+.tiktok-title {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 4vw, 60px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.tiktok-title a {
+  color: var(--red);
+  transition: color .25s;
+}
+.tiktok-title a:hover { color: #e0253a; }
+.tiktok-sub {
+  font-family: var(--f-body);
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-style: italic;
+  color: var(--cream2);
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  background: var(--surface);
+  border-top: 1px solid rgba(196,149,42,.1);
+  padding: 64px 0 36px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.footer-brand {}
+.footer-logo {
+  font-family: var(--f-display);
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.footer-logo span { color: var(--red); }
+.footer-tagline {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .35em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-about {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 260px;
+}
+.footer-col h4 {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .35em;
+  color: var(--cream2);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color .25s;
+}
+.footer-col a:hover { color: var(--cream); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copy {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--muted);
+}
+.footer-legal {
+  display: flex;
+  gap: 28px;
+}
+.footer-legal a {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--muted);
+  transition: color .25s;
+}
+.footer-legal a:hover { color: var(--cream); }
+
+/* =============================================
+   SCROLL REVEAL
+============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   MOBILE
+============================================= */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-img { min-height: 360px; display: none; }
+  .hero-content { border-left: none; padding: 56px 24px 60px; }
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .training-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .offering-block { grid-template-columns: 1fr; gap: 36px; }
+  .offering-block.flip { direction: ltr; }
+  .sensei-grid { grid-template-columns: 1fr; }
+  .sensei-photo-wrap { position: static; max-width: 320px; }
+  .seminar-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-mobile-btn { display: flex; }
+}
+@media (max-width: 600px) {
+  .training-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .sensei-stats { flex-direction: column; gap: 24px; }
+}
+
+::selection { background: rgba(185,28,44,.35); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Kali<span> Strikes</span></a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">The Way</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#offerings">Offerings</a></li>
+      <li><a href="#sensei">Sensei</a></li>
+    </ul>
+    <a href="#seminar" class="nav-cta btn">Inquire Now</a>
+    <button class="nav-mobile-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img">
+    <div class="hero-img-placeholder">
+      <p>Replace with training photo</p>
+    </div>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow hero-eyebrow">Kali Strikes Defense Co.</p>
+    <h1 class="hero-title">
+      Where the<br/>
+      Sovereign<br/>
+      <em>Women</em><br/>
+      Gather.
+    </h1>
+    <p class="hero-sub">
+      This is not just self-defense training. It is a gathering of women reclaiming instinct, confidence, power, and presence.
+    </p>
+    <div class="hero-actions">
+      <a href="#offerings" class="btn btn-primary">Explore Offerings</a>
+      <a href="#philosophy" class="btn btn-outline">The Philosophy</a>
+    </div>
+    <div class="hero-detail">
+      <div class="hero-detail-line"></div>
+      <p>Chicagoland, Illinois &nbsp; / &nbsp; Center, Move, Empower</p>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">Real-World Self Defense</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Kali Stick Training</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Partner Drills</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Confidence Under Pressure</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Sovereign Community</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Center</span>
+    <span class="strip-dot">&#183;</span>
+    <span class="strip-item">Move</span>
+    <span class="strip-dot">&#183;</span>
+    <span class="strip-item">Empower</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Real-World Self Defense</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Kali Stick Training</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Partner Drills</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Confidence Under Pressure</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Sovereign Community</span>
+    <span class="strip-dot">&#8212;</span>
+    <span class="strip-item">Center</span>
+    <span class="strip-dot">&#183;</span>
+    <span class="strip-item">Move</span>
+    <span class="strip-dot">&#183;</span>
+    <span class="strip-item">Empower</span>
+    <span class="strip-dot">&#8212;</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="wrap">
+    <div class="philosophy-grid">
+      <div class="philosophy-left reveal">
+        <p class="philosophy-quote">
+          Strong women are not born.<br/>They are forged.
+        </p>
+        <div class="philosophy-attr">
+          <div class="philosophy-attr-line"></div>
+          <p>Kali Strikes Defense Co.</p>
+        </div>
+      </div>
+      <div class="philosophy-right reveal">
+        <div class="philosophy-body">
+          <p>There is a version of you that does not freeze. One that trusts herself completely. She walks through the world grounded, aware, powerful. Most women never meet her. At Kali Strikes, we do.</p>
+          <p>Through the ancient Filipino art of Kali and Arnis, you will learn how to move, how to strike, how to react under pressure. How to carry yourself with a different kind of energy. The kind people feel before you even speak.</p>
+          <p>You will do it surrounded by other women becoming stronger beside you.</p>
+        </div>
+        <div class="done-list">
+          <p class="eyebrow" style="margin-bottom:16px;padding-top:8px">This is for the woman who is done with</p>
+          <div class="done-item">
+            <div class="done-mark"></div>
+            <p>Shrinking herself to make others comfortable</p>
+          </div>
+          <div class="done-item">
+            <div class="done-mark"></div>
+            <p>Second-guessing her instincts</p>
+          </div>
+          <div class="done-item">
+            <div class="done-mark"></div>
+            <p>Feeling disconnected from her own strength</p>
+          </div>
+        </div>
+        <p class="philosophy-body" style="font-style:italic">No experience needed. Just the willingness to dig deep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section class="training" id="training">
+  <div class="wrap">
+    <div class="training-header reveal">
+      <p class="eyebrow">What You Will Learn</p>
+      <h2 class="section-title">The Five Pillars</h2>
+    </div>
+    <div class="training-grid">
+      <div class="training-card reveal">
+        <p class="tc-num">01</p>
+        <h3 class="tc-title">Real-World Self-Defense</h3>
+        <p class="tc-desc">Practical techniques built for actual situations. You learn to read environments, control distance, and respond before fear sets in.</p>
+      </div>
+      <div class="training-card reveal">
+        <p class="tc-num">02</p>
+        <h3 class="tc-title">Kali Stick Training</h3>
+        <p class="tc-desc">The ancient Filipino art of Arnis. Precise, fluid, devastating. Weapon-in-hand training that translates directly to empty-hand skill.</p>
+      </div>
+      <div class="training-card reveal">
+        <p class="tc-num">03</p>
+        <h3 class="tc-title">Partner Drills and Flow</h3>
+        <p class="tc-desc">Movement becomes instinct through repetition and trust. Drills that eliminate hesitation and build reflexive response.</p>
+      </div>
+      <div class="training-card reveal">
+        <p class="tc-num">04</p>
+        <h3 class="tc-title">Confidence Under Pressure</h3>
+        <p class="tc-desc">Train the nervous system to stay composed when fear tells you to freeze. The mental edge is the whole edge.</p>
+      </div>
+      <div class="training-card reveal">
+        <p class="tc-num">05</p>
+        <h3 class="tc-title">Sovereign Community</h3>
+        <p class="tc-desc">Women forging each other. No competition. No performance. Only mutual elevation in every class.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="testimonials-header reveal">
+      <p class="eyebrow">What Women Say</p>
+      <h2 class="section-title">Forged Here</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-mark">"</div>
+        <p class="testi-text">I came in nervous and left feeling something I had never felt before. Like I finally took up the space I was always supposed to have.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar"></div>
+          <div>
+            <p class="testi-name">Maria R.</p>
+            <p class="testi-loc">Chicagoland, IL</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-mark">"</div>
+        <p class="testi-text">Sensei Katrina does not just teach technique. She teaches you to trust yourself. That carries over into everything. My job, my relationships, my entire life.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar"></div>
+          <div>
+            <p class="testi-name">Danielle T.</p>
+            <p class="testi-loc">Chicago, IL</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-mark">"</div>
+        <p class="testi-text">Three months in and I walk differently. I think differently. People notice. I noticed. This is the most important thing I have ever invested in for myself.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar"></div>
+          <div>
+            <p class="testi-name">Jasmine K.</p>
+            <p class="testi-loc">Evanston, IL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section class="offerings" id="offerings">
+  <div class="wrap">
+    <div class="offerings-header reveal">
+      <p class="eyebrow">The Offerings</p>
+      <h2 class="section-title">Choose Your Path</h2>
+    </div>
+
+    <!-- Course -->
+    <div class="offering-block reveal">
+      <div class="offering-img">
+        <div class="offering-img-placeholder">
+          <p>Course preview image</p>
+        </div>
+        <span class="status-pill soon">Coming Soon</span>
+      </div>
+      <div class="offering-content">
+        <p class="eyebrow offering-label">01 / Online Course</p>
+        <h3 class="offering-title">The Kali Strikes Online Course</h3>
+        <p class="offering-desc">Train anywhere. The full Kali Strikes curriculum delivered to your screen. Technique, mindset, movement flow, and confidence drills. Built for beginners. Built to transform you.</p>
+        <div class="waitlist-form">
+          <input type="email" placeholder="Enter your email" />
+          <button type="button">Notify Me</button>
+        </div>
+        <p class="offering-note">Join the waitlist. No spam. Ever.</p>
+      </div>
+    </div>
+
+    <!-- Novel -->
+    <div class="offering-block flip reveal">
+      <div class="offering-img">
+        <div class="offering-img-placeholder">
+          <p>Book cover image</p>
+        </div>
+        <span class="status-pill soon">Coming Soon</span>
+      </div>
+      <div class="offering-content">
+        <p class="eyebrow offering-label">02 / The Novel</p>
+        <h3 class="offering-title">A Story of Reclamation</h3>
+        <p class="offering-desc">Part warrior legend, part modern truth. Written by Sensei Katrina Woodville for every woman who has ever felt unsafe in her own life. A story that does not just entertain. It changes you.</p>
+        <div class="waitlist-form">
+          <input type="email" placeholder="Enter your email" />
+          <button type="button">Pre-Order Alert</button>
+        </div>
+        <p class="offering-note">Be first to know when it drops.</p>
+      </div>
+    </div>
+
+    <!-- Seminar -->
+    <div class="offering-block reveal">
+      <div class="offering-img">
+        <div class="offering-img-placeholder">
+          <p>Seminar photo</p>
+        </div>
+        <span class="status-pill open">Now Booking</span>
+      </div>
+      <div class="offering-content">
+        <p class="eyebrow offering-label">03 / Seminar and Branch</p>
+        <h3 class="offering-title">Bring Kali Strikes to Your City</h3>
+        <p class="offering-desc">Studio owner, gym operator, community leader, or a woman ready to lead something real. We partner with you to host a seminar or launch a branch in your major US city. The movement is expanding.</p>
+        <a href="#seminar" class="btn btn-gold">Inquire About a Seminar</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SENSEI -->
+<section class="sensei" id="sensei">
+  <div class="wrap">
+    <div class="sensei-grid">
+      <div class="sensei-photo-wrap reveal">
+        <div class="sensei-photo">
+          <div class="sensei-photo-inner">
+            <p>Sensei Katrina Woodville photo</p>
+          </div>
+          <div class="sensei-photo-accent"></div>
+        </div>
+      </div>
+      <div class="sensei-content reveal">
+        <p class="eyebrow sensei-label">The Founder</p>
+        <h2 class="sensei-name">Sensei Katrina Woodville</h2>
+        <p class="sensei-title-line">Chicagoland, Illinois</p>
+        <p class="sensei-bio">Led by a woman who has walked through the fire herself. Sensei Katrina built Kali Strikes not from a syllabus but from lived experience. She knows what it feels like to want more for yourself than fear allows.</p>
+        <p class="sensei-bio">Her mission is singular: no woman who trains here walks out the same. Every student who enters a Kali Strikes space leaves more grounded, more present, and <strong>more powerful</strong> than when she arrived.</p>
+        <p class="sensei-bio">She is not here to teach you self-defense. She is here to introduce you to yourself.</p>
+        <div class="sensei-stats">
+          <div class="stat">
+            <p class="stat-val">Kali</p>
+            <p class="stat-lbl">Art Form</p>
+          </div>
+          <div class="stat">
+            <p class="stat-val">Arnis</p>
+            <p class="stat-lbl">Discipline</p>
+          </div>
+          <div class="stat">
+            <p class="stat-val">US-Wide</p>
+            <p class="stat-lbl">Expanding</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMINAR INQUIRY -->
+<section class="seminar" id="seminar">
+  <div class="wrap">
+    <div class="seminar-grid">
+      <div class="seminar-left reveal">
+        <p class="eyebrow">Host a Seminar</p>
+        <h2 class="seminar-title">Start a Branch in Your City</h2>
+        <p class="seminar-body">Whether you run a gym, a studio, or a community space, we will work with you to bring Kali Strikes to your city. Kali Strikes is expanding across the United States and we are looking for the right partners.</p>
+        <p class="seminar-body" style="margin-bottom:24px">Current interest from these markets:</p>
+        <div class="seminar-cities">
+          <span class="city-pill">Chicago</span>
+          <span class="city-pill">New York</span>
+          <span class="city-pill">Los Angeles</span>
+          <span class="city-pill">Houston</span>
+          <span class="city-pill">Atlanta</span>
+          <span class="city-pill">Dallas</span>
+          <span class="city-pill">Miami</span>
+          <span class="city-pill">Your City</span>
+        </div>
+      </div>
+      <div class="seminar-form reveal">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE"/>
+          <input type="hidden" name="subject" value="Kali Strikes Seminar Inquiry"/>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input class="form-control" type="text" name="first_name" placeholder="Katrina" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input class="form-control" type="text" name="last_name" placeholder="Woodville" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input class="form-control" type="email" name="email" placeholder="you@email.com" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">City / State</label>
+              <input class="form-control" type="text" name="city" placeholder="Chicago, IL" required/>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Tell Us About Your Space</label>
+              <textarea class="form-control" name="message" placeholder="Type of venue, capacity, community you serve..."></textarea>
+            </div>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary" style="width:100%">Submit Inquiry</button>
+            <p class="form-note">We respond within 48 hours. No sales pressure.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIKTOK -->
+<section class="tiktok-section">
+  <div class="wrap reveal">
+    <p class="eyebrow tiktok-eyebrow">Follow the Movement</p>
+    <h2 class="tiktok-title">
+      Watch us train on TikTok.<br/>
+      <a href="https://www.tiktok.com/@kalistrikes" target="_blank">@kalistrikes</a>
+    </h2>
+    <p class="tiktok-sub">Real women. Real training. No filters. No performance. Just the work.</p>
+    <a href="https://www.tiktok.com/@kalistrikes" target="_blank" class="btn btn-outline">Follow on TikTok</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-logo">Kali<span> Strikes</span></p>
+        <p class="footer-tagline">Center &nbsp; / &nbsp; Move &nbsp; / &nbsp; Empower</p>
+        <p class="footer-about">A tactical training program for women. Founded by Sensei Katrina Woodville in Chicagoland, Illinois. Expanding nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#philosophy">The Way</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#offerings">Offerings</a></li>
+          <li><a href="#sensei">Sensei</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Offerings</h4>
+        <ul>
+          <li><a href="#offerings">Online Course</a></li>
+          <li><a href="#offerings">The Novel</a></li>
+          <li><a href="#seminar">Host a Seminar</a></li>
+          <li><a href="#seminar">Start a Branch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.tiktok.com/@kalistrikes" target="_blank">TikTok</a></li>
+          <li><a href="#seminar">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&#169; 2025 Kali Strikes Defense Co. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// STRIP duplicate for seamless loop
+const track = document.querySelector('.strip-inner');
+if (track) {
+  track.innerHTML = track.innerHTML + track.innerHTML;
+}
+
+// SIMPLE FORM SUCCESS
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      if (res.ok) {
+        btn.textContent = 'Sent! We will be in touch.';
+        btn.style.background = '#2D6A4F';
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = 'Error. Try again.';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
+    }
+  });
+});
+</script>
+</body>
+</html>
